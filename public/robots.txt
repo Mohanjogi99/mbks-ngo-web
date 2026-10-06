@@ -1,0 +1,14 @@
+# robots.txt for Maa-Babuji Jankalyan Samiti Chhattisgarh (MBKS)
+# https://mbks-cg.org
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin/*
+
+# Host
+Host: https://mbks-cg.org
+
+# Sitemap Location
+Sitemap: https://mbks-cg.org/sitemap.xml

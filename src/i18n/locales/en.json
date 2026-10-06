@@ -1,0 +1,41 @@
+{
+  "org": {
+    "name": "Maa-Babuji Jankalyan Samiti Chhattisgarh",
+    "englishName": "Maa-Babuji Jankalyan Samiti Chhattisgarh",
+    "tagline": "Registered Social Welfare NGO Dedicated to Public Service, Development & Harmony",
+    "regNo": "Dispatch No. 347, Dated 26/05/2025",
+    "location": "Nawagarh, Janjgir-Champa (C.G.)"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "objectives": "Objectives",
+    "programs": "Programs",
+    "projects": "Projects",
+    "events": "Events",
+    "gallery": "Gallery",
+    "news": "News & Blog",
+    "reports": "Reports",
+    "volunteer": "Volunteer",
+    "donate": "Donate",
+    "contact": "Contact",
+    "admin": "Admin Portal"
+  },
+  "actions": {
+    "donateNow": "Donate Now",
+    "joinVolunteer": "Become a Volunteer",
+    "learnMore": "Learn More",
+    "readMore": "Read Full Story",
+    "downloadReport": "Download PDF",
+    "contactUs": "Contact Us",
+    "viewObjectives": "View All 10 Objectives",
+    "toggleLanguage": "हिन्दी"
+  },
+  "footer": {
+    "aboutBrief": "Maa-Babuji Jankalyan Samiti Chhattisgarh (Reg. Dispatch No. 347) is committed to education, healthcare, women empowerment, water conservation, elderly care, and youth skill development.",
+    "quickLinks": "Quick Links",
+    "mandatedObjectives": "10 Constitutional Objectives",
+    "contactInfo": "Headquarters Address",
+    "rights": "All Rights Reserved."
+  }
+}

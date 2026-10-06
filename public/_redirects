@@ -1,0 +1,3 @@
+# Cloudflare Pages SPA Routing Redirect Rules
+# Redirects all sub-routes to index.html for React Router v6
+/*    /index.html   200
