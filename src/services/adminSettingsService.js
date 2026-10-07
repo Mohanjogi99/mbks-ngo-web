@@ -19,12 +19,12 @@ const DEFAULT_SETTINGS = {
   addressDistrict: 'जांजगीर-चांपा (Janjgir-Champa)',
   addressState: 'छत्तीसगढ़ (Chhattisgarh)',
   pincode: '495668',
-  bankAccountName: 'Maa-Babuji Jankalyan Samiti Chhattisgarh',
-  bankName: 'State Bank of India (SBI)',
-  bankAccountNo: '432100982614',
-  bankIfsc: 'SBIN0002874',
-  bankBranch: 'Nawagarh (Janjgir-Champa, C.G.)',
-  upiId: 'mbks.ngo@sbi',
+  bankAccountName: 'MAA BABUJI JANKALYAN SAMITI CHHATTISGARH SOCIETY',
+  bankName: 'Union Bank of India',
+  bankAccountNo: '291121010000113',
+  bankIfsc: 'UBIN0929115',
+  bankBranch: 'Janjgir (DD Plaza, Kacheri Chowk, Janjgir, C.G.)',
+  upiId: 'maababujijankalyansamiti@unionbank',
 };
 
 /**

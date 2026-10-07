@@ -32,6 +32,18 @@ export const NGO_DETAILS = {
   },
 };
 
+export const BANK_DETAILS = {
+  accountName: 'MAA BABUJI JANKALYAN SAMITI CHHATTISGARH SOCIETY',
+  accountNameHi: 'मां बाबूजी जनकल्याण समिति छत्तीसगढ़ सोसाइटी',
+  bankName: 'Union Bank of India',
+  bankNameHi: 'यूनियन बैंक ऑफ इंडिया',
+  accountNo: '291121010000113',
+  ifsc: 'UBIN0929115',
+  branch: 'Janjgir (DD Plaza, Kacheri Chowk, Janjgir, C.G.)',
+  branchHi: 'जांजगीर (डीडी प्लाजा, कचहरी चौक, जांजगीर, छ.ग.)',
+  accountType: 'Current Account / संस्था का आधिकारिक खाता',
+};
+
 export const NGO_OBJECTIVES = [
   {
     id: 1,

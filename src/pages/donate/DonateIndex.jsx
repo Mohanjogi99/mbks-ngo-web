@@ -4,7 +4,7 @@ import { Section } from '../../components/ui/Section';
 import { Breadcrumbs } from '../../components/ui/Breadcrumbs';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
-import { NGO_DETAILS } from '../../utils/constants';
+import { NGO_DETAILS, BANK_DETAILS } from '../../utils/constants';
 import { useLanguage } from '../../context/LanguageContext';
 import { createDonation } from '../../services/adminDonationsService';
 import {
@@ -550,23 +550,23 @@ export const DonateIndex = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <span className="text-slate-500 block text-xs">खाताधारक का नाम (Account Name):</span>
-                      <span className="font-bold text-slate-900">Maa-Babuji Jankalyan Samiti Chhattisgarh</span>
+                      <span className="font-bold text-slate-900 text-xs sm:text-sm">{BANK_DETAILS.accountName}</span>
                     </div>
                     <div>
                       <span className="text-slate-500 block text-xs">बैंक का नाम (Bank Name):</span>
-                      <span className="font-bold text-slate-900">State Bank of India (SBI)</span>
+                      <span className="font-bold text-slate-900">{isHindi ? BANK_DETAILS.bankNameHi : BANK_DETAILS.bankName}</span>
                     </div>
                     <div>
                       <span className="text-slate-500 block text-xs">खाता संख्या (Account No.):</span>
-                      <span className="font-mono font-extrabold text-ngo-green-900 text-sm">432100982614</span>
+                      <span className="font-mono font-extrabold text-ngo-green-900 text-sm sm:text-base">{BANK_DETAILS.accountNo}</span>
                     </div>
                     <div>
                       <span className="text-slate-500 block text-xs">IFSC कोड (IFSC Code):</span>
-                      <span className="font-mono font-bold text-slate-900">SBIN0002874</span>
+                      <span className="font-mono font-bold text-slate-900 text-sm sm:text-base">{BANK_DETAILS.ifsc}</span>
                     </div>
-                    <div>
+                    <div className="sm:col-span-2">
                       <span className="text-slate-500 block text-xs">शाखा (Branch):</span>
-                      <span className="font-medium text-slate-800">Nawagarh (Janjgir-Champa, C.G.)</span>
+                      <span className="font-medium text-slate-800">{isHindi ? BANK_DETAILS.branchHi : BANK_DETAILS.branch}</span>
                     </div>
                   </div>
                 </div>

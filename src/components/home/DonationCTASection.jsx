@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Section } from '../ui/Section';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
-import { NGO_DETAILS } from '../../utils/constants';
+import { NGO_DETAILS, BANK_DETAILS } from '../../utils/constants';
 import { useLanguage } from '../../context/LanguageContext';
 import { Heart, Building, ShieldCheck, FileText, QrCode } from 'lucide-react';
 
@@ -41,27 +41,27 @@ export const DonationCTASection = () => {
           <div className="space-y-2.5 text-xs sm:text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
             <div className="flex justify-between py-1 border-b border-slate-200/60">
               <span className="font-semibold text-slate-500">{isHindi ? 'खाता धारक का नाम:' : 'Account Name:'}</span>
-              <span className="font-bold text-slate-900 text-right">{NGO_DETAILS.nameEn}</span>
+              <span className="font-bold text-slate-900 text-right text-xs sm:text-sm">{BANK_DETAILS.accountName}</span>
             </div>
 
             <div className="flex justify-between py-1 border-b border-slate-200/60">
               <span className="font-semibold text-slate-500">{isHindi ? 'बैंक का नाम:' : 'Bank Name:'}</span>
-              <span className="font-bold text-slate-900">State Bank of India (SBI)</span>
+              <span className="font-bold text-slate-900">{isHindi ? BANK_DETAILS.bankNameHi : BANK_DETAILS.bankName}</span>
             </div>
 
             <div className="flex justify-between py-1 border-b border-slate-200/60">
               <span className="font-semibold text-slate-500">{isHindi ? 'शाखा (Branch):' : 'Branch:'}</span>
-              <span className="font-bold text-slate-900">Nawagarh (Jan-Champa)</span>
+              <span className="font-bold text-slate-900">{isHindi ? BANK_DETAILS.branchHi : BANK_DETAILS.branch}</span>
             </div>
 
             <div className="flex justify-between py-1 border-b border-slate-200/60">
               <span className="font-semibold text-slate-500">{isHindi ? 'खाता संख्या (A/C No):' : 'Account Number:'}</span>
-              <span className="font-extrabold text-ngo-green-800 tracking-wider">XXXXXXXXXXXX</span>
+              <span className="font-extrabold text-ngo-green-800 tracking-wider font-mono text-sm sm:text-base">{BANK_DETAILS.accountNo}</span>
             </div>
 
             <div className="flex justify-between py-1">
               <span className="font-semibold text-slate-500">{isHindi ? 'आईएफएससी कोड (IFSC):' : 'IFSC Code:'}</span>
-              <span className="font-extrabold text-ngo-gold-800 tracking-wider">SBIN000XXXX</span>
+              <span className="font-extrabold text-ngo-gold-800 tracking-wider font-mono text-sm sm:text-base">{BANK_DETAILS.ifsc}</span>
             </div>
           </div>
 
