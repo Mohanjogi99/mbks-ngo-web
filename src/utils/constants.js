@@ -42,6 +42,8 @@ export const BANK_DETAILS = {
   branch: 'Janjgir (DD Plaza, Kacheri Chowk, Janjgir, C.G.)',
   branchHi: 'जांजगीर (डीडी प्लाजा, कचहरी चौक, जांजगीर, छ.ग.)',
   accountType: 'Current Account / संस्था का आधिकारिक खाता',
+  upiId: 'QR919516133518-2660@unionbankofindia',
+  qrCodeImg: '/upi-qr.jpg',
 };
 
 export const NGO_OBJECTIVES = [

@@ -76,33 +76,45 @@ export const DonationCTASection = () => {
           <div className="space-y-4">
             <Badge variant="gold" className="text-xs">
               <QrCode className="w-3.5 h-3.5 mr-1" />
-              <span>{isHindi ? 'गूगल पे / फोनपे / पेटीएम UPI' : 'Instant UPI Payments'}</span>
+              <span>{isHindi ? 'गूगल पे / फोनपे / पेटीएम / भीम UPI' : 'Instant UPI Payments'}</span>
             </Badge>
 
             <h3 className="text-xl font-bold text-white">
-              {isHindi ? 'क्यूआर कोड या यूपीआई से तुरंत सहयोग करें' : 'Donate Instantly via Scan & Pay'}
+              {isHindi ? 'आधिकारिक QR कोड से तुरंत दान करें' : 'Scan & Donate via Official QR Code'}
             </h3>
 
-            <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed">
-              {isHindi
-                ? 'शिक्षा, स्वास्थ्य, वृक्षारोपण एवं भोजन सेवा अभियानों हेतु अपनी इच्छानुसार कोई भी राशि दान कर सकते हैं।'
-                : 'Contribute any amount of your choice towards education, health camps, tree plantation, and nutrition drives.'}
-            </p>
+            {/* Official QR Code & Info Display */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/10 p-4 rounded-xl border border-white/20">
+              <div className="w-28 h-36 bg-white p-1.5 rounded-lg shrink-0 shadow-md border border-white/40">
+                <img
+                  src={BANK_DETAILS.qrCodeImg}
+                  alt="Union Bank Official QR Code"
+                  className="w-full h-full object-contain rounded"
+                />
+              </div>
 
-            <div className="bg-white/10 p-4 rounded-xl border border-white/20 flex items-center justify-between text-xs">
-              <span className="text-emerald-200">{isHindi ? 'आधिकारिक UPI ID:' : 'Official UPI ID:'}</span>
-              <span className="font-extrabold text-ngo-gold-500 tracking-wider">mbks@sbi</span>
+              <div className="space-y-2 text-xs text-center sm:text-left">
+                <p className="font-bold text-ngo-gold-400 text-sm">{BANK_DETAILS.bankNameHi}</p>
+                <p className="text-emerald-100 text-[11px] leading-tight font-medium">{BANK_DETAILS.accountName}</p>
+                
+                <div className="pt-1">
+                  <span className="text-emerald-300 block text-[10px] uppercase tracking-wider">{isHindi ? 'आधिकारिक UPI ID:' : 'Official UPI ID:'}</span>
+                  <span className="font-mono font-bold text-white text-[11px] sm:text-xs select-all bg-black/30 px-2 py-1 rounded block mt-0.5 break-all">
+                    {BANK_DETAILS.upiId}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="pt-4 space-y-2">
+          <div className="pt-2 space-y-2">
             <NavLink to="/donate" className="block">
-              <Button variant="gold" size="lg" icon={Heart} className="w-full">
-                {isHindi ? 'ऑनलाइन दान पोर्टल पर जाएं' : 'Go to Online Donation Portal'}
+              <Button variant="gold" size="lg" icon={Heart} className="w-full font-bold shadow-lg">
+                {isHindi ? 'क्यूआर कोड स्कैन करें या ऑनलाइन दान करें' : 'Scan QR Code / Donate Online'}
               </Button>
             </NavLink>
             <p className="text-[11px] text-center text-emerald-300">
-              {isHindi ? 'सुरक्षित भुगतान गेटवे एवं 100% पारदर्शिता' : 'Secure Payment Gateway & 100% Transparency'}
+              {isHindi ? '100% सुरक्षित भुगतान एवं 80G टैक्स छूट रसीद' : '100% Secure Payment & Tax Exemption Receipt'}
             </p>
           </div>
         </div>

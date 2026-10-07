@@ -513,29 +513,55 @@ export const DonateIndex = () => {
               {/* Dynamic Payment Method Display Content */}
               {paymentMethod === 'upi' && (
                 <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 animate-fade-in">
-                  <div className="flex flex-col sm:flex-row items-center gap-6">
-                    {/* Simulated QR Code Box */}
-                    <div className="w-40 h-40 bg-white p-3 rounded-2xl border border-slate-300 shadow-md flex flex-col items-center justify-center shrink-0 text-center">
-                      <div className="w-32 h-32 bg-slate-900 rounded-xl p-2 flex items-center justify-center text-white text-[10px] font-mono text-center">
-                        [ Official NGO UPI QR Code Scanner ]
+                  <div className="flex flex-col md:flex-row items-center gap-6">
+                    {/* Official Union Bank QR Code Card */}
+                    <div className="bg-white p-3 rounded-2xl border border-slate-300 shadow-md flex flex-col items-center shrink-0 text-center space-y-2">
+                      <div className="w-48 sm:w-52 h-64 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100">
+                        <img
+                          src={BANK_DETAILS.qrCodeImg}
+                          alt="Maa-Babuji Jankalyan Samiti Official Union Bank UPI QR Code"
+                          className="w-full h-full object-contain"
+                        />
                       </div>
+                      <a
+                        href={BANK_DETAILS.qrCodeImg}
+                        download="MBKS_Union_Bank_UPI_QR.jpg"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-ngo-green-800 hover:text-ngo-green-950 hover:underline pt-1"
+                      >
+                        <span>क्यूआर कोड डाउनलोड / ज़ूम करें (Download QR)</span>
+                      </a>
                     </div>
 
-                    <div className="space-y-2 text-xs sm:text-sm text-slate-800">
-                      <h4 className="font-bold text-slate-900 text-base">स्कैन कर किसी भी UPI ऐप से भुगतान करें</h4>
-                      <p className="text-slate-600">
-                        आप Google Pay, PhonePe, Paytm या BHIM ऐप से नीचे दिए गए UPI ID पर सीधे ₹{getEffectiveAmount()} ट्रान्सफर कर सकते हैं:
+                    <div className="space-y-3 text-xs sm:text-sm text-slate-800 flex-1">
+                      <div>
+                        <span className="text-xs font-bold text-ngo-gold-700 uppercase tracking-wider block">Union Bank of India (यूनियन बैंक ऑफ इंडिया)</span>
+                        <h4 className="font-extrabold text-slate-900 text-base sm:text-lg">स्कैन कर किसी भी UPI ऐप से दान करें</h4>
+                      </div>
+
+                      <p className="text-slate-600 leading-relaxed">
+                        आप <strong>Google Pay, PhonePe, Paytm, BHIM</strong> या अपने बैंक ऐप से इस QR कोड को स्कैन करके या नीचे दी गई UPI ID से सीधे <strong>₹{getEffectiveAmount()}</strong> का योगदान कर सकते हैं:
                       </p>
 
-                      <div className="inline-flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-300 font-mono font-bold text-ngo-green-900">
-                        <span>mbks.ngo@sbi</span>
-                        <button
-                          type="button"
-                          onClick={() => handleCopy('mbks.ngo@sbi', 'upi')}
-                          className="p-1 text-slate-400 hover:text-slate-700"
-                        >
-                          {copiedField === 'upi' ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                        </button>
+                      <div className="space-y-1.5 pt-1">
+                        <label className="text-xs font-semibold text-slate-500 block">आधिकारिक संगठन UPI ID (Official UPI ID):</label>
+                        <div className="inline-flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-300 font-mono font-bold text-ngo-green-900 text-xs sm:text-sm select-all shadow-xs max-w-full overflow-x-auto">
+                          <span>{BANK_DETAILS.upiId}</span>
+                          <button
+                            type="button"
+                            onClick={() => handleCopy(BANK_DETAILS.upiId, 'upi')}
+                            className="p-1 text-slate-400 hover:text-slate-700 shrink-0"
+                            title="Copy UPI ID"
+                          >
+                            {copiedField === 'upi' ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-ngo-green-950 flex items-start gap-2">
+                        <ShieldCheck className="w-4 h-4 text-ngo-green-700 shrink-0 mt-0.5" />
+                        <span>भुगतान के पश्चात् फॉर्म सबमिट करें। हमारी टीम द्वारा 80G आयकर छूट रसीद आपके ईमेल/व्हाट्सएप पर भेजी जाएगी।</span>
                       </div>
                     </div>
                   </div>
