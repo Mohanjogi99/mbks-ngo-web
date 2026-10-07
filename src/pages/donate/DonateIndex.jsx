@@ -94,6 +94,7 @@ export const DonateIndex = () => {
   const [selectedAmount, setSelectedAmount] = useState(1000);
   const [customAmount, setCustomAmount] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('upi'); // 'upi' | 'bank_transfer' | 'gateway_placeholder'
+  const [showQrModal, setShowQrModal] = useState(false);
 
   const [donorData, setDonorData] = useState({
     fullName: '',
@@ -515,23 +516,33 @@ export const DonateIndex = () => {
                 <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 animate-fade-in">
                   <div className="flex flex-col md:flex-row items-center gap-6">
                     {/* Official Union Bank QR Code Card */}
-                    <div className="bg-white p-3 rounded-2xl border border-slate-300 shadow-md flex flex-col items-center shrink-0 text-center space-y-2">
-                      <div className="w-48 sm:w-52 h-64 bg-white rounded-xl overflow-hidden flex items-center justify-center p-1 border border-slate-100">
-                        <img
-                          src={BANK_DETAILS.qrCodeImg}
-                          alt="Maa-Babuji Jankalyan Samiti Official Union Bank UPI QR Code"
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      <a
-                        href={BANK_DETAILS.qrCodeImg}
-                        download="MBKS_Union_Bank_UPI_QR.jpg"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-ngo-green-800 hover:text-ngo-green-950 hover:underline pt-1"
+                    <div className="bg-white p-3.5 rounded-2xl border border-slate-300 shadow-md flex flex-col items-center shrink-0 text-center space-y-3">
+                      <div 
+                        onClick={() => setShowQrModal(true)}
+                        className="w-52 h-64 bg-white rounded-xl overflow-hidden flex items-center justify-center p-2 border border-slate-200 cursor-pointer hover:shadow-lg transition-all group relative"
                       >
-                        <span>क्यूआर कोड डाउनलोड / ज़ूम करें (Download QR)</span>
-                      </a>
+                        <img
+                          src="/upi-qr.jpg"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = '/data-01/upi-qr.jpg';
+                          }}
+                          alt="Maa-Babuji Jankalyan Samiti Official Union Bank UPI QR Code"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-bold transition-opacity rounded-xl">
+                          🔍 ज़ूम करें (Click to Zoom)
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setShowQrModal(true)}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-ngo-green-800 hover:text-ngo-green-950 hover:underline"
+                      >
+                        <QrCode className="w-4 h-4 text-ngo-gold-600" />
+                        <span>बड़ा QR कोड देखें / डाउनलोड करें</span>
+                      </button>
                     </div>
 
                     <div className="space-y-3 text-xs sm:text-sm text-slate-800 flex-1">
@@ -541,17 +552,17 @@ export const DonateIndex = () => {
                       </div>
 
                       <p className="text-slate-600 leading-relaxed">
-                        आप <strong>Google Pay, PhonePe, Paytm, BHIM</strong> या अपने बैंक ऐप से इस QR कोड को स्कैन करके या नीचे दी गई UPI ID से सीधे <strong>₹{getEffectiveAmount()}</strong> का योगदान कर सकते हैं:
+                        आप <strong>Google Pay, PhonePe, Paytm, BHIM</strong> या अपने बैंक ऐप से ऊपर दिए गए <strong>यूनियन बैंक QR कोड</strong> को स्कैन करके या नीचे दी गई UPI ID से सीधे <strong>₹{getEffectiveAmount()}</strong> का योगदान कर सकते हैं:
                       </p>
 
                       <div className="space-y-1.5 pt-1">
                         <label className="text-xs font-semibold text-slate-500 block">आधिकारिक संगठन UPI ID (Official UPI ID):</label>
-                        <div className="inline-flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-300 font-mono font-bold text-ngo-green-900 text-xs sm:text-sm select-all shadow-xs max-w-full overflow-x-auto">
+                        <div className="inline-flex items-center gap-2 bg-white px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-bold text-ngo-green-900 text-xs sm:text-sm select-all shadow-xs max-w-full overflow-x-auto">
                           <span>{BANK_DETAILS.upiId}</span>
                           <button
                             type="button"
                             onClick={() => handleCopy(BANK_DETAILS.upiId, 'upi')}
-                            className="p-1 text-slate-400 hover:text-slate-700 shrink-0"
+                            className="p-1.5 bg-emerald-50 rounded-lg text-ngo-green-800 hover:bg-emerald-100 transition-colors shrink-0"
                             title="Copy UPI ID"
                           >
                             {copiedField === 'upi' ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
@@ -761,6 +772,59 @@ export const DonateIndex = () => {
               </Button>
             </div>
           </form>
+        )}
+
+        {/* Full Screen Union Bank QR Code Modal */}
+        {showQrModal && (
+          <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+            <div className="bg-white rounded-3xl p-5 sm:p-6 max-w-lg w-full shadow-2xl relative space-y-4 max-h-[90vh] overflow-y-auto text-center border border-slate-200">
+              <button
+                type="button"
+                onClick={() => setShowQrModal(false)}
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center font-bold text-lg"
+              >
+                ✕
+              </button>
+
+              <div className="space-y-1 pt-1">
+                <Badge variant="gold" className="text-xs mx-auto">
+                  <span>यूनियन बैंक ऑफ इंडिया (Union Bank of India)</span>
+                </Badge>
+                <h3 className="text-lg font-extrabold text-slate-900">
+                  मां बाबूजी जनकल्याण समिति छत्तीसगढ़
+                </h3>
+                <p className="text-xs text-slate-500 font-mono">
+                  {BANK_DETAILS.upiId}
+                </p>
+              </div>
+
+              <div className="bg-white p-2 rounded-2xl border border-slate-200 shadow-inner max-w-sm mx-auto">
+                <img
+                  src="/upi-qr.jpg"
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/data-01/upi-qr.jpg'; }}
+                  alt="Union Bank Official QR Code Poster"
+                  className="w-full h-auto object-contain rounded-xl max-h-[60vh]"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <a
+                  href="/upi-qr.jpg"
+                  download="MBKS_Union_Bank_UPI_QR.jpg"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto"
+                >
+                  <Button variant="green" size="md" className="w-full">
+                    📥 क्यूआर कोड पोस्टर डाउनलोड करें
+                  </Button>
+                </a>
+                <Button variant="outline" size="md" onClick={() => setShowQrModal(false)} className="w-full sm:w-auto">
+                  बंद करें (Close)
+                </Button>
+              </div>
+            </div>
+          </div>
         )}
       </Container>
     </div>
