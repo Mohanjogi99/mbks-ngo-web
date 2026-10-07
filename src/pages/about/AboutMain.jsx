@@ -130,6 +130,7 @@ export const AboutMain = () => {
 
         {/* 2. Special Wing: Maa Babuji Online & Consultant */}
         <Section
+          background="dark"
           className="bg-gradient-to-br from-slate-900 via-ngo-green-950 to-emerald-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-emerald-800/80 mb-10 relative overflow-hidden"
           badge={isHindi ? 'विशेष प्रकल्प' : 'Special Flagship Initiative'}
           badgeVariant="gold"
