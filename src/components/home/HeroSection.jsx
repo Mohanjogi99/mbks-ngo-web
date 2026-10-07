@@ -25,11 +25,8 @@ export const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Top Registration Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold text-ngo-gold-500 shadow-md">
-            <FileCheck className="w-4 h-4 shrink-0 text-ngo-gold-500" />
-            <span>{NGO_DETAILS.regNo}</span>
-            <span className="hidden xs:inline border-l border-white/20 pl-2 text-emerald-200">
-              {isHindi ? 'छत्तीसगढ़ सोसायटी पंजीयन' : 'Registered CG Society'}
-            </span>
+            <ShieldCheck className="w-4 h-4 shrink-0 text-ngo-gold-500" />
+            <span>{isHindi ? 'छत्तीसगढ़ पंजीकृत सामाजिक संस्था' : 'Registered Social Welfare Organization'}</span>
           </div>
 
           {/* Official NGO Logo Emblem */}

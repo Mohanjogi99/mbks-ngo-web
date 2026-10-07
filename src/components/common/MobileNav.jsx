@@ -46,7 +46,7 @@ export const MobileNav = ({ isOpen, onClose }) => {
                   {NGO_DETAILS.nameHi}
                 </h3>
                 <p className="text-[10px] text-ngo-gold-500 font-medium">
-                  {NGO_DETAILS.regNo}
+                  {isHindi ? 'पंजीकृत सामाजिक संस्था (छ.ग.)' : 'Registered NGO (C.G.)'}
                 </p>
               </div>
             </div>

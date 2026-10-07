@@ -11,14 +11,10 @@ export const Header = () => {
   return (
     <div className="bg-ngo-green-950 text-white text-xs py-2 border-b border-emerald-900/60 select-none">
       <Container className="flex flex-col sm:flex-row items-center justify-between gap-2">
-        {/* Left: Registration & Location */}
+        {/* Left: Location & Tagline */}
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-emerald-100/90">
           <div className="flex items-center gap-1.5 font-medium">
-            <FileCheck className="w-3.5 h-3.5 text-ngo-gold-500 shrink-0" />
-            <span className="text-ngo-gold-500 font-semibold">{NGO_DETAILS.regNo}</span>
-          </div>
-          <div className="hidden md:flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <MapPin className="w-3.5 h-3.5 text-ngo-gold-500 shrink-0" />
             <span>{isHindi ? 'भैसमुड़ी, नवागढ़, जांजगीर-चांपा (छ.ग.)' : 'Bhaisamudi, Nawagarh, Janjgir-Champa (C.G.)'}</span>
           </div>
         </div>
