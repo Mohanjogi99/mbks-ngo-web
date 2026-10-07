@@ -87,8 +87,9 @@ export const DonationCTASection = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/10 p-4 rounded-xl border border-white/20">
               <div className="w-28 h-36 bg-white p-1.5 rounded-lg shrink-0 shadow-md border border-white/40">
                 <img
-                  src={BANK_DETAILS.qrCodeImg}
-                  alt="Union Bank Official QR Code"
+                  src="/qr-code.png"
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/upi-qr.png'; }}
+                  alt="Union Bank Official High-Contrast QR Code"
                   className="w-full h-full object-contain rounded"
                 />
               </div>

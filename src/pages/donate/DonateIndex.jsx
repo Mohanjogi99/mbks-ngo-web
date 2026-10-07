@@ -515,22 +515,27 @@ export const DonateIndex = () => {
               {paymentMethod === 'upi' && (
                 <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 animate-fade-in">
                   <div className="flex flex-col md:flex-row items-center gap-6">
-                    {/* Official Union Bank QR Code Card */}
-                    <div className="bg-white p-3.5 rounded-2xl border border-slate-300 shadow-md flex flex-col items-center shrink-0 text-center space-y-3">
+                    {/* Official Union Bank Enhanced QR Code Card */}
+                    <div className="bg-white p-4 rounded-2xl border border-slate-300 shadow-md flex flex-col items-center shrink-0 text-center space-y-3 max-w-xs w-full">
+                      <div className="w-full bg-red-700 text-white py-1.5 px-3 rounded-lg text-xs font-bold flex items-center justify-between">
+                        <span>Union Bank of India</span>
+                        <span className="text-[10px] bg-white/20 px-1.5 py-0.5 rounded">BHIM UPI</span>
+                      </div>
+
                       <div 
                         onClick={() => setShowQrModal(true)}
-                        className="w-52 h-64 bg-white rounded-xl overflow-hidden flex items-center justify-center p-2 border border-slate-200 cursor-pointer hover:shadow-lg transition-all group relative"
+                        className="w-48 h-48 bg-white rounded-xl overflow-hidden flex items-center justify-center p-2 border-2 border-slate-200 cursor-pointer hover:shadow-xl hover:border-ngo-green-700 transition-all group relative"
                       >
                         <img
-                          src="/upi-qr.jpg"
+                          src="/qr-code.png"
                           onError={(e) => {
                             e.target.onerror = null;
-                            e.target.src = '/data-01/upi-qr.jpg';
+                            e.target.src = '/upi-qr.png';
                           }}
-                          alt="Maa-Babuji Jankalyan Samiti Official Union Bank UPI QR Code"
+                          alt="Maa-Babuji Jankalyan Samiti High-Contrast Union Bank UPI QR Code"
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform"
                         />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-bold transition-opacity rounded-xl">
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-bold transition-opacity rounded-lg">
                           🔍 ज़ूम करें (Click to Zoom)
                         </div>
                       </div>
@@ -798,25 +803,25 @@ export const DonateIndex = () => {
                 </p>
               </div>
 
-              <div className="bg-white p-2 rounded-2xl border border-slate-200 shadow-inner max-w-sm mx-auto">
+              <div className="bg-white p-4 rounded-2xl border-2 border-ngo-green-700/40 shadow-inner max-w-xs mx-auto">
                 <img
-                  src="/upi-qr.jpg"
-                  onError={(e) => { e.target.onerror = null; e.target.src = '/data-01/upi-qr.jpg'; }}
-                  alt="Union Bank Official QR Code Poster"
-                  className="w-full h-auto object-contain rounded-xl max-h-[60vh]"
+                  src="/qr-code.png"
+                  onError={(e) => { e.target.onerror = null; e.target.src = '/upi-qr.png'; }}
+                  alt="Union Bank Official High-Contrast QR Code"
+                  className="w-full h-auto object-contain rounded-xl"
                 />
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                 <a
-                  href="/upi-qr.jpg"
-                  download="MBKS_Union_Bank_UPI_QR.jpg"
+                  href="/qr-code.png"
+                  download="MBKS_Union_Bank_UPI_QR.png"
                   target="_blank"
                   rel="noreferrer"
                   className="w-full sm:w-auto"
                 >
                   <Button variant="green" size="md" className="w-full">
-                    📥 क्यूआर कोड पोस्टर डाउनलोड करें
+                    📥 हाई-क्वालिटी QR डाउनलोड करें
                   </Button>
                 </a>
                 <Button variant="outline" size="md" onClick={() => setShowQrModal(false)} className="w-full sm:w-auto">
